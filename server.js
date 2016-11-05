@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const express = require('express');
 const winston = require('winston');
 const date = require('date-and-time');
+const mysql = require('mysql');
 
 global.__CLIENT__ = false;
 global.__SERVER__ = true;
@@ -39,6 +40,46 @@ const config = require('./webpack.config');
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
+
+let databaseConfig = {};
+let reconnectingToMysql = false;
+// Setup mysql
+const connectToMysql = () => {
+  const connection = mysql.createConnection(databaseConfig);
+  connection.connect(function(err) {
+    if (err) {
+      if( !reconnectingToMysql ) {
+        logger.error(err);
+      }
+      reconnectingToMysql = true;
+      setTimeout(connectToMysql, 3000);
+    }
+    else {
+      logger.info('Succesfully connected to database');
+      reconnectingToMysql = false;
+    }
+  });
+
+  // Attempt to reconnect on error
+  connection.on('error', function(err) {
+      logger.info('Connection to database lost, reconnecting... ');
+      connectToMysql();
+  });
+}
+
+// Read database config file
+fs.readFile(path.join(__dirname, 'database.json'), 'utf8', (err, data) => {
+  try {
+    if(err) {
+      logger.error(err);
+    } else {
+      databaseConfig = JSON.parse(data)
+      connectToMysql();
+    }
+  } catch(err) {
+    logger.error(err);
+  }
+});
 
 const api_path = 'api';
 
