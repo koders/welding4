@@ -15,7 +15,7 @@ logger.info('Starting up server...');
 
 const app = express();
 // Static paths
-app.use('/images', express.static(path.join(__dirname, './src/images')))
+app.use('/', express.static(path.join(__dirname, './src/assets')))
 
 // HTML request logging
 app.use(require('morgan')('short'));
