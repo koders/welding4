@@ -15,7 +15,11 @@ logger.info('Starting up server...');
 
 const app = express();
 // Static paths
-app.use('/', express.static(path.join(__dirname, './src/assets')))
+app.use('/', express.static(path.join(__dirname, './src/assets')));
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts')); // redirect CSS bootstrap
 
 // HTML request logging
 app.use(require('morgan')('short'));
