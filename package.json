@@ -1,18 +1,15 @@
 {
-  "name": "react-boilerplate",
+  "name": "welding",
   "version": "0.0.1",
-  "description": "my react boilerplate",
+  "description": "welding document management app",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/koders/react-boilerplate.git"
+    "url": "https://github.com/koders/welding.git"
   },
-  "keywords": [
-    "react starter boilerplate"
-  ],
   "author": "Rihards Fridrihsons <rfridrihsons@gmail.com> (http://github.com/koders)",
   "license": "MIT",
   "devDependencies": {
