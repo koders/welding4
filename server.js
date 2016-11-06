@@ -36,7 +36,20 @@ app.get('/' + api_path + '/test' , function(req, res) {
   res.status(200).send('It works!');
 });
 
+app.get('/' + api_path + '/orders/:id' , function(req, res) {
+  // Parsing to int so no need for escaping
+  let id = parseInt(req.params.id);
+  if(isNaN(id)) {
+    res.status(404).send();
+    return;
   }
+  const query = 'SELECT * from orders where id = ?';
+  db.query(query, [id], function(err, rows, fields) {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
 });
 
 app.get('/' + api_path + '/orders' , function(req, res) {
