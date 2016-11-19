@@ -3,8 +3,9 @@ import { observer } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 import { browserHistory, Route, Router, Link } from 'react-router';
 
+import AppComponent from './AppComponent.jsx';
 @observer(['state'])
-class App extends Component {
+class App extends AppComponent {
   static css()
   {
     return `
