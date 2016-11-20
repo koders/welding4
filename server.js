@@ -21,6 +21,7 @@ app.use('/assets/js', express.static(__dirname + '/node_modules/jquery/dist')); 
 app.use('/assets/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 app.use('/assets/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts')); // redirect CSS bootstrap
 app.use('/assets/fonts', express.static(__dirname + '/node_modules/font-awesome/css')); // redirect CSS bootstrap
+app.use('/assets/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts')); // redirect CSS bootstrap
 
 // HTML request logging
 app.use(require('morgan')('short'));
