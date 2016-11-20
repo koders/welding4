@@ -41,6 +41,7 @@
     "mobx-react-devtools": "^4.2.0",
     "morgan": "^1.7.0",
     "mysql": "^2.12.0",
+    "node-waves": "^0.7.5",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.8.1",

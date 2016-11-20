@@ -12,6 +12,10 @@ class App extends AppComponent {
   static css()
   {
     return `
+      * {
+        outline: none !important;
+      }
+
       body {
         background: ${this.color1};
         font-family: 'Roboto', sans-serif;
@@ -21,18 +25,25 @@ class App extends AppComponent {
         overflow-x: hidden;
         color: #98a6ad;
       }
-      
+
       .content {
         padding: 0px 5px;
         margin-top: 73px;
         margin-left: 250px;
         overflow: hidden;
       }
-      
+
       ${TopBar.css()}
       ${LeftSideMenu.css()}
-      
+
     `;
+  }
+  componentDidMount() {
+    Waves.attach('.btn', 'waves-light');
+    Waves.init();
+  }
+  componentDidUpdate() {
+    Waves.attach('.btn', 'waves-light');
   }
   render() {
     const { state } = this.props;

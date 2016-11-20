@@ -74,10 +74,10 @@ class SidebarMenu extends AppComponent {
         	<li className="text-muted menu-title">Navigation</li>
 
           <li>
-              <Link to="/dashboard"><i className="fa fa-dashboard"></i> <span> Dashboard </span> </Link>
+              <Link to="/dashboard" className="waves-effect"><i className="fa fa-dashboard"></i> <span> Dashboard </span> </Link>
           </li>
           <li>
-              <Link to="/orders"><i className="fa fa-folder-o"></i> <span> Orders </span> </Link>
+              <Link to="/orders" className="waves-effect"><i className="fa fa-folder-o"></i> <span> Orders </span> </Link>
           </li>
         </ul>
       </div>
