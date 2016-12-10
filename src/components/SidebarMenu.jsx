@@ -20,7 +20,7 @@ class SidebarMenu extends AppComponent {
         position: relative;
         text-decoration: none;
       }
-      
+
       .menu-title {
         padding: 12px 20px !important;
         letter-spacing: .035em;
@@ -28,11 +28,11 @@ class SidebarMenu extends AppComponent {
         cursor: default;
         font-size: 13px;
       }
-      
+
       .text-muted {
         color: #98a6ad !important;
       }
-      
+
       .sidebar-menu > ul > li > a {
         color: #435966;
         display: block;
@@ -41,16 +41,17 @@ class SidebarMenu extends AppComponent {
         border-left: 3px solid transparent;
         transition: color 200ms;
       }
-      
-      .sidebar-menu > ul > li > a:hover {
+
+      .sidebar-menu > ul > li > a:hover,
+      .sidebar-menu ul li a.active {
         color: red;
         cursor: pointer;
       }
-      
-      .sidbar-menu a {
+
+      .sidebar-menu a {
         line-height: 1.3;
       }
-      
+
       .sidebar-menu ul li a i {
         display: inline-block;
         font-size: 16px;
@@ -61,24 +62,37 @@ class SidebarMenu extends AppComponent {
         vertical-align: middle;
         width: 20px;
       }
-      
+
       .sidebar-menu > ul > li > a > span {
         vertical-align: middle;
       }
     `;
   }
   render () {
+    const { title } = this.props;
+    const links = [
+      {title: 'dashboard', icon: 'dashboard'},
+      {title: 'orders', icon: 'folder'}
+    ];
     return (
       <div className="sidebar-menu">
         <ul>
         	<li className="text-muted menu-title">Navigation</li>
 
-          <li>
-              <Link to="/dashboard" className="waves-effect"><i className="fa fa-dashboard"></i> <span> Dashboard </span> </Link>
-          </li>
-          <li>
-              <Link to="/orders" className="waves-effect"><i className="fa fa-folder-o"></i> <span> Orders </span> </Link>
-          </li>
+          { links.map((link) => {
+            let className = 'waves-effect';
+            if(link.title == title) {
+              className += ' active';
+            }
+            return (
+              <li key={link.title}>
+                <Link to={`/${link.title}`} className={className}>
+                  <i className={`fa fa-${link.icon}`}></i>
+                  <span>{ link.title }</span>
+                </Link>
+              </li>
+            )
+          }) }
         </ul>
       </div>
     )

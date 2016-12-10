@@ -17,7 +17,7 @@ class Orders extends React.Component {
     let someOrders= orders.slice(0, 10);
     return (
       <div className="orders">
-        <button className="btn btn-info">New Order</button>
+        <button className="btn btn-info w-m">New Order</button>
         <table className="table">
           <thead>
             <tr>

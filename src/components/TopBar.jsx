@@ -91,7 +91,7 @@ class TopBar extends AppComponent {
     `;
   }
   render () {
-    const title = location.pathname.split('/')[1];
+    const { title } = this.props;
     return (
       <div className="topbar">
           <div className="topbar-left">

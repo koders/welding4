@@ -33,6 +33,14 @@ class App extends AppComponent {
         overflow: hidden;
       }
 
+      .w-m {
+        width: 110px;
+      }
+
+      m-r-5 {
+        margin-right: 5px;
+      }
+
       ${TopBar.css()}
       ${LeftSideMenu.css()}
 
@@ -47,12 +55,12 @@ class App extends AppComponent {
   }
   render() {
     const { state } = this.props;
-    const message = state.message;
+    const title = location.pathname.split('/')[1];
     return (
       <div className="main-content">
         <style>{App.css()}</style>
-        <TopBar />
-        <LeftSideMenu />
+        <TopBar title={title} />
+        <LeftSideMenu title={title} />
         <div className="content">
           <div className="main-container">
             { this.props.children }

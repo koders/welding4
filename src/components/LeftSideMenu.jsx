@@ -21,7 +21,7 @@ class LeftSideMenu extends AppComponent {
         position: fixed;
         box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
       }
-      
+
       ${UserBox.css()}
       ${SidebarMenu.css()}
     `;
@@ -30,7 +30,7 @@ class LeftSideMenu extends AppComponent {
     return (
       <div className="side-menu">
         <UserBox />
-        <SidebarMenu />
+        <SidebarMenu {...this.props} />
       </div>
     )
   }
