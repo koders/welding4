@@ -6,6 +6,7 @@ import { browserHistory, Route, Router, Link } from 'react-router';
 import AppComponent from './AppComponent.jsx';
 import TopBar from './TopBar.jsx';
 import LeftSideMenu from './LeftSideMenu.jsx';
+import Orders from './Orders.jsx';
 
 @observer(['state'])
 class App extends AppComponent {
@@ -43,7 +44,7 @@ class App extends AppComponent {
 
       ${TopBar.css()}
       ${LeftSideMenu.css()}
-
+      ${Orders.css()}
     `;
   }
   componentDidMount() {

@@ -5,6 +5,7 @@ import { Router, Route, IndexRedirect, IndexRoute, browserHistory } from 'react-
 import AppWrapper from './components/AppWrapper';
 import Dashboard from './components/Dashboard';
 import Orders from './components/Orders';
+import CreateOrder from './components//orders/Create';
 
 const rerender = () => {
   render(
@@ -12,6 +13,7 @@ const rerender = () => {
         <Route path="/" component={AppWrapper}>
           <IndexRedirect to="/dashboard" />
           <Route path="dashboard" component={Dashboard}></Route>
+          <Route path="orders/create" component={CreateOrder} />
           <Route path="orders" component={Orders}></Route>
         </Route>
       </Router>,

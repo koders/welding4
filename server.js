@@ -61,7 +61,7 @@ app.get('/' + api_path + '/orders/:id' , function(req, res) {
 });
 
 app.get('/' + api_path + '/orders' , function(req, res) {
-  db.query('SELECT * from orders', function(err, rows, fields) {
+  db.query('SELECT * from orders order by id desc', function(err, rows, fields) {
     if (err) {
       throw err;
     }

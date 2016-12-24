@@ -23,7 +23,7 @@ class UserBox extends AppComponent {
     return (
       <div className="user-box">
         <div className="user-img">
-          <img src="assets/images/admin.png" alt="user-img" title="Mat Helme" className="img-circle img-thumbnail img-responsive"/>
+          <img src="/assets/images/admin.png" alt="user-img" title="Mat Helme" className="img-circle img-thumbnail img-responsive"/>
           <div className="user-status offline"><i className="zmdi zmdi-dot-circle"></i></div>
         </div>
         <h5><a href="#">Admin</a> </h5>
