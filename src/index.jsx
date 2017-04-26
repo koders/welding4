@@ -38,4 +38,9 @@ if (module.hot) {
     const NextApp = require('./components/Orders').default;
     rerender();
   });
+  
+  module.hot.accept('./components/orders/Create', () => {
+    const NextApp = require('./components/orders/Create').default;
+    rerender();
+  });
 }

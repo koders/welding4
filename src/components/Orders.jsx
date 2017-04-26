@@ -74,7 +74,7 @@ class Orders extends React.Component {
   }
   render () {
     let orders = this.props.state.orders;
-    let someOrders= orders.slice(0, 10000);
+    let someOrders= orders.slice(0, 100);
     return (
       <div className="orders">
         <Link to="/orders/create" className="btn btn-info">New Order</Link>

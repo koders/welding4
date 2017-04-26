@@ -69,6 +69,15 @@ app.get('/' + api_path + '/orders' , function(req, res) {
   });
 });
 
+app.get('/' + api_path + '/products' , function(req, res) {
+  db.query('SELECT * from products order by id asc', function(err, rows, fields) {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+});
+
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
